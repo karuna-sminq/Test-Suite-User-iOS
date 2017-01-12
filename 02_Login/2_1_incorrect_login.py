@@ -31,6 +31,7 @@ try:
 	wd.find_element_by_xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]").click()
 	wd.find_element_by_xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]").click()
 	wd.switch_to_alert().accept()
+
 finally:
 	wd.quit()
 	if not success:

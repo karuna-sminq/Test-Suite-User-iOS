@@ -15,22 +15,22 @@ wd = webdriver.Remote('http://0.0.0.0:4723/wd/hub', desired_caps)
 wd.implicitly_wait(60)
 
 def is_alert_present(wd):
-	try:
-		wd.switch_to_alert().text
-		return True
-	except:
-		return False
+    try:
+        wd.switch_to_alert().text
+        return True
+    except:
+        return False
 
-try:
-	wd.switch_to_alert().accept()
-	wd.find_element_by_xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]").click()
-	wd.find_element_by_name("NEXT").click()
-	wd.find_element_by_xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]").click()
-	wd.find_element_by_name("NEXT").click()
-	wd.find_element_by_xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]").click()
-	wd.find_element_by_name("START").click()
+wd.switch_to_alert().accept()
+wd.implicitly_wait(3)
+wd.find_element_by_name("NEXT").click()
+wd.implicitly_wait(3)
+wd.find_element_by_name("NEXT").click()
+wd.implicitly_wait(3)
+wd.find_element_by_name("START").click()
+wd.implicitly_wait(3)
 
-finally:
-	wd.quit()
-	if not success:
-		raise Exception("Test failed.")
+        # finally:
+        #     wd.quit()
+        #     if not success:
+        #         raise Exception("Test failed.")

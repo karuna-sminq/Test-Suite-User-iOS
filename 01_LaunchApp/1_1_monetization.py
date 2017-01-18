@@ -61,13 +61,13 @@ driver.implicitly_wait(3)
 driver.find_element_by_name("JOIN").click()
 driver.implicitly_wait(3)
 
-# Check for Business Listing Screen
-def test_business_listing(self):
-    title = driver.find_element_by_xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]").text
-    print title
-    self.assertEqual("T", title)
-
-test_business_listing()
+# # Check for Business Listing Screen
+# def test_business_listing(self):
+#     title = driver.find_element_by_xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]").text
+#     print title
+#     self.assertEqual("T", title)
+#
+# test_business_listing()
 
 # Queue listing
 driver.find_element_by_name("JOIN").click()
@@ -82,12 +82,20 @@ driver.implicitly_wait(3)
 driver.switch_to_alert().accept()
 driver.implicitly_wait(3)
 
-# Check for Token Creation Screen
-def test_token_creation(self):
-    title = driver.find_element_by_xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]").text
-    self.assertEqual("Booking Done", title)
+# # Check for Token Creation Screen
+# def test_token_creation(self):
+#     title = driver.find_element_by_xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]").text
+#     self.assertEqual("Booking Done", title)
+#
+# test_token_creation()
 
-test_token_creation()
+# Token - Make Payment
+driver.find_element_by_name("MAKE PAYMENT").click()
+driver.implicitly_wait(3)
 
-if __name__ == '__main__':
-    main()
+#Subscription Charges
+title = driver.find_element_by_xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]").text
+driver.assertEqual(title, 'Membership')
+
+#Consultation Charges
+driver.find_element_by_name("PAY BOOKING CHARGES").click()
